@@ -129,19 +129,45 @@ public class Student extends User {
     }
 
     public void removeCourse(){
+        System.out.println("Enter the Course Code to Remove:");
+        int input = scanner.nextInt();
 
+        for (int i = this.courses.size() - 1; i >= 0; i--) {
+            Course c = this.courses.get(i);
+            if(c.getCode() == input){
+                courses.remove(i);
+                c.setCapacity(c.getCapacity()+1);
+                this.studentUnits-=c.getUnit();
+            }
+        }
     }
 
     public void showEnrolledCourses(){
-        if (courses.size() == 0){
-            System.out.println("You Have No Courses yet!");
-        }
-        else
-            for (Course c:this.courses){
-                System.out.println(c);
+        boolean running = true;
+        while (running){
+            System.out.println("1.Show Enrolled Courses");
+            System.out.println("2.Remove Course");
+            System.out.println("3.Back");
+            int input = scanner.nextInt();
+            if (input == 1){
+                if (courses.size() == 0){
+                    System.out.println("You Have No Courses yet!");
+                }
+                else
+                    for (Course c:this.courses){
+                        System.out.println(c);
+                    }
+                System.out.println("Total units: "+studentUnits);
+                System.out.println("Number of courses: "+courses.size());
             }
-        System.out.println("Total units: "+studentUnits);
-        System.out.println("Number of courses: "+courses.size());
+            else if (input == 2){
+                removeCourse();
+            }
+            else if (input == 3){
+                running = false;
+            }
+        }
+
     }
 
     public void getCourses() {
