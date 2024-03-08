@@ -12,7 +12,6 @@ public class Student extends User {
     int studentUnits = 0;
 
 
-
     public Student(String name, String pass) {
         super(name, pass);
         courses = new ArrayList<>();
@@ -47,21 +46,10 @@ public class Student extends User {
 
     }
 
-    public void chooseCourses(){
 
-    }
-
-    public void removeCourse(){
-
-    }
 
     public void showCoursesofDepartmentOrChoose (){
-        final MathDepartment mathDepartment = new MathDepartment();
-        final ComputerEngDepartment computerEngDepartment = new ComputerEngDepartment();
-        final ChemicalEngDepartment chemicalEngDepartment = new ChemicalEngDepartment();
-        final ElectricalEngDepartment electricalEngDepartment = new ElectricalEngDepartment();
-        final LanguageCenter languageCenter = new LanguageCenter();
-        final ReligiousCenter religiousCenter = new ReligiousCenter();
+
         boolean running = true;
         while (running){
             System.out.println("1.See Math Department Courses");
@@ -89,24 +77,40 @@ public class Student extends User {
 
                 System.out.println("***************************************************************************************************************************************************************************************************");
             } else if (choice == 3) {
-                chemicalEngDepartment.showCoursesOfDepartment();
+                System.out.println("***************************************************************************************************************************************************************************************************");
+                for (Course c:ChemicalEngDepartment.ChemicalEngCourses){
+                    System.out.println(c);
+                }
+
+                System.out.println("***************************************************************************************************************************************************************************************************");
             } else if (choice == 4) {
-                electricalEngDepartment.showCoursesOfDepartment();
+                System.out.println("***************************************************************************************************************************************************************************************************");
+                for (Course c:ElectricalEngDepartment.EEcourses){
+                    System.out.println(c);
+                }
+
+                System.out.println("***************************************************************************************************************************************************************************************************");
             } else if (choice == 5) {
-                languageCenter.showCoursesOfDepartment();
+                System.out.println("***************************************************************************************************************************************************************************************************");
+                for (Course c:LanguageCenter.LanguageCourses){
+                    System.out.println(c);
+                }
+
+                System.out.println("***************************************************************************************************************************************************************************************************");
             } else if (choice == 6) {
-                religiousCenter.showCoursesOfDepartment();
+                System.out.println("***************************************************************************************************************************************************************************************************");
+                for (Course c:ReligiousCenter.ReligiousCourses){
+                    System.out.println(c);
+                }
+
+                System.out.println("***************************************************************************************************************************************************************************************************");
 
             }
             else if (choice == 7){
-                    getCourses();
-                for (Course c :courses){
-                    System.out.println(c);
-                }
+               chooseCourses();
             }else if (choice == 8){
                 running = false;
-                MathDepartment.mathCourses.clear();
-                ComputerEngDepartment.CECourses.clear();
+
             }
 
 
@@ -115,63 +119,46 @@ public class Student extends User {
 
     }
 
-    public void showEnrolledCourses(){
 
+
+    public void chooseCourses(){
+        getCourses();
+        for (Course c :courses){
+            System.out.println(c);
+        }
+    }
+
+    public void removeCourse(){
+
+    }
+
+    public void showEnrolledCourses(){
+        if (courses.size() == 0){
+            System.out.println("You Have No Courses yet!");
+        }
+        else
+            for (Course c:this.courses){
+                System.out.println(c);
+            }
+        System.out.println("Total units: "+studentUnits);
+        System.out.println("Number of courses: "+courses.size());
     }
 
     public void getCourses() {
         System.out.println("Enter the Course code: ");
         int input = scanner.nextInt();
-       switch (input){
-           case 11:
-               courses.add(MathDepartment.course1);
-               MathDepartment.course1.setCapacity(MathDepartment.course1.getCapacity()-1);
-               System.out.println(MathDepartment.course1.getCapacity());
-               break;
-           case 12:
-               courses.add(MathDepartment.course2);
-               MathDepartment.course1.setCapacity(MathDepartment.course1.getCapacity()-1);
-               break;
-           case 13:
-               courses.add(MathDepartment.course3);
-               MathDepartment.course1.setCapacity(MathDepartment.course1.getCapacity()-1);
-               break;
-           case 21:
-               courses.add(ComputerEngDepartment.course1);
-               ComputerEngDepartment.course1.setCapacity(ComputerEngDepartment.course1.getCapacity()-1);
-               break;
-           case 22:
-               courses.add(ComputerEngDepartment.course2);
-               break;
-           case 23:
-               courses.add(ComputerEngDepartment.course3);
-               break;
-           case 31:
-               break;
-           case 32:
-               break;
-           case 33:
-               break;
-           case 41:
-               break;
-           case 42:
-               break;
-           case 43:
-               break;
-           case 51:
-               break;
-           case 52:
-               break;
-           case 53:
-               break;
-           case 61:
-               break;
-           case 62:
-               break;
-           case 63:
-               break;
-           default:
-       }
+        Course course = null;
+        for (Course c: Department.allCourses){
+            if (c.getCode() == input){
+                course = c;
+            }
+
+        }
+            this.courses.add(course);
+            this.studentUnits+=course.getUnit();
+            course.setCapacity(course.getCapacity()-1);
+
+
     }
 
     public int getStudentUnits() {

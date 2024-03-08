@@ -18,6 +18,10 @@ public class ComputerEngDepartment extends Department {
         CECourses.add(course2);
         course3 = new SpecializedCourse("DataStrocture",23,"Ahmadi",50,4,false, DayOfWeek.WEDNESDAY,LocalTime.of(10,0),LocalTime.of(12,0), LocalDate.of(2024,6,18));
         CECourses.add(course3);
+
+        for (Course c:CECourses){
+            Department.allCourses.add(c);
+        }
     }
 
     @Override

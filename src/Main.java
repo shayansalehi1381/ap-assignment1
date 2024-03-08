@@ -5,6 +5,12 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         final  Admin admin = new Admin("Admin", "123456");
+        final MathDepartment mathDepartment = new MathDepartment();
+        final ComputerEngDepartment computerEngDepartment = new ComputerEngDepartment();
+        final ChemicalEngDepartment chemicalEngDepartment = new ChemicalEngDepartment();
+        final ElectricalEngDepartment electricalEngDepartment = new ElectricalEngDepartment();
+        final LanguageCenter languageCenter = new LanguageCenter();
+        final ReligiousCenter religiousCenter = new ReligiousCenter();
         System.out.println("*** Welcome to Sharif University of Technology! ***");
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
