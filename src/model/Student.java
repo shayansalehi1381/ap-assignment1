@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Student extends User {
-
+    static ArrayList<Student> students = new ArrayList<>();
     ArrayList<Course> courses;
     int studentUnits = 0;
 
@@ -15,6 +15,7 @@ public class Student extends User {
     public Student(String name, String pass) {
         super(name, pass);
         courses = new ArrayList<>();
+        students.add(this);
     }
 
 
@@ -138,8 +139,10 @@ public class Student extends User {
                 courses.remove(i);
                 c.setCapacity(c.getCapacity()+1);
                 this.studentUnits-=c.getUnit();
+                c.studentsOfThisCourse.remove(this);
             }
         }
+
     }
 
     public void showEnrolledCourses(){
@@ -181,6 +184,7 @@ public class Student extends User {
 
         }
             this.courses.add(course);
+        course.studentsOfThisCourse.add(this);
             this.studentUnits+=course.getUnit();
             course.setCapacity(course.getCapacity()-1);
 

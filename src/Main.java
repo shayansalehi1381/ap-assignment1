@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        final  Admin admin = new Admin("Admin", "123456");
+        final  Admin admin = new Admin("admin", "123456");
         final MathDepartment mathDepartment = new MathDepartment();
         final ComputerEngDepartment computerEngDepartment = new ComputerEngDepartment();
         final ChemicalEngDepartment chemicalEngDepartment = new ChemicalEngDepartment();

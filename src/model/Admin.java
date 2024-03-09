@@ -3,7 +3,6 @@ package model;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Scanner;
 
 public class Admin extends User{
 
@@ -109,7 +108,6 @@ public class Admin extends User{
         }
         System.out.println("Exam Date:");
         System.out.println("Although the exam month is June!");
-        System.out.println("just set the Day: from 1 to 30");
         LocalDate examDate;
         int number;
         System.out.print("Enter a number between 1 and 30: ");
@@ -157,6 +155,68 @@ public class Admin extends User{
     }
 
     public void showEnrolledStudentsofCourse(){
+        if (Math == true){
+            System.out.println("Enter the Course Code to show its Students:");
+            int code = scanner.nextInt();
+            for (Course c:MathDepartment.mathCourses){
+                if (c.getCode() == code){
+                 for (Student s :c.studentsOfThisCourse){
+                     System.out.println(s);
+                 }
+                }
+            }
+        } else if (CE == true) {
+            System.out.println("Enter the Course Code to show its Students:");
+            int code = scanner.nextInt();
+            for (Course c:ComputerEngDepartment.CECourses){
+                if (c.getCode() == code){
+                    for (Student s :c.studentsOfThisCourse){
+                        System.out.println(s);
+                    }
+                }
+            }
+        } else if (CHE == true) {
+            System.out.println("Enter the Course Code to show its Students:");
+            int code = scanner.nextInt();
+            for (Course c:ChemicalEngDepartment.ChemicalEngCourses){
+                if (c.getCode() == code){
+                    for (Student s :c.studentsOfThisCourse){
+                        System.out.println(s);
+                    }
+                }
+            }
+        } else if (EE == true) {
+            System.out.println("Enter the Course Code to show its Students:");
+            int code = scanner.nextInt();
+            for (Course c:ElectricalEngDepartment.EEcourses){
+                if (c.getCode() == code){
+                    for (Student s :c.studentsOfThisCourse){
+                        System.out.println(s);
+                    }
+                }
+            }
+        }else if (LC == true){
+            System.out.println("Enter the Course Code to show its Students:");
+            int code = scanner.nextInt();
+            for (Course c:LanguageCenter.LanguageCourses){
+                if (c.getCode() == code){
+                    for (Student s :c.studentsOfThisCourse){
+                        System.out.println(s);
+                    }
+                }
+            }
+        } else if (RC == true) {
+            System.out.println("Enter the Course Code to show its Students:");
+            int code = scanner.nextInt();
+            for (Course c:ReligiousCenter.ReligiousCourses){
+                if (c.getCode() == code){
+                    for (Student s :c.studentsOfThisCourse){
+                        System.out.println(s);
+                    }
+                }
+            }
+        }
+
 
     }
 
@@ -165,6 +225,35 @@ public class Admin extends User{
     }
 
     public void addStudentToCourse(){
+        System.out.println("Enter the Student ID: ");
+        String StudentID = scanner.next();
+        for (Student s: Student.students){
+            if (s.getName().equals(StudentID)){
+                System.out.println("Enter the Course Code:");
+                int Code =scanner.nextInt();
+                for (Course c :Department.allCourses){
+                    if (c.getCode() == Code){
+                        System.out.println(c);
+                        if (c.getCapacity() > 0){
+                            c.studentsOfThisCourse.add((s));
+                            c.setCapacity(c.getCapacity()-1);
+                            s.studentUnits+=c.getUnit();
+                            s.courses.add(c);
+                        }
+                        else {
+                            System.out.println("The capacity of "+c.getName()+" is full");
+                        }
+                    }
+                }
+            }
+
+            else {
+                System.out.println("There is no Student with this ID!");
+                break;
+            }
+        }
+
+
 
     }
 
@@ -185,6 +274,7 @@ public class Admin extends User{
                 for (Course c:MathDepartment.mathCourses){
                     System.out.println(c);
                 }
+                showAdminOptions2();
 
             }
             else if (input == 2){
@@ -192,30 +282,35 @@ public class Admin extends User{
                 for (Course c:ComputerEngDepartment.CECourses){
                     System.out.println(c);
                 }
+                showAdminOptions2();
             }
             else if (input == 3){
                 CHE = true;
                 for (Course c:ChemicalEngDepartment.ChemicalEngCourses){
                     System.out.println(c);
                 }
+                showAdminOptions2();
             }
             else if (input == 4){
                 EE = true;
                 for (Course c:ElectricalEngDepartment.EEcourses){
                     System.out.println(c);
                 }
+                showAdminOptions2();
             }
             else if (input == 5){
                 LC = true;
                 for (Course c:LanguageCenter.LanguageCourses){
                     System.out.println(c);
                 }
+                showAdminOptions2();
             }
             else if (input == 6){
                 RC = true;
                 for (Course c:ReligiousCenter.ReligiousCourses){
                     System.out.println(c);
                 }
+                showAdminOptions2();
             }
 
             else if (input == 7){
@@ -238,14 +333,33 @@ public class Admin extends User{
         boolean running = true;
         while (running){
             System.out.println("**************************************************************************************************************************************************************************************");
-            System.out.println("1.Add a New Course to this Department");
+            System.out.println("1.Add a New Course to this Department Or Remove a Course From this Department");
             System.out.println("2.show list of Enrolled Students in this Department");
             System.out.println("3.Back");
             int input = scanner.nextInt();
             if (input == 1){
-            addNewCourse();
+          //  addNewCourse();
             }
             else if (input == 2){
+                boolean running2 = true;
+                while (running2){
+                    System.out.println("1.show Enrolled Students of a Course");
+                    System.out.println("2.add a Student to a Course");
+                    System.out.println("3.Remove a Student from a Course");
+                    System.out.println("4.Back");
+                    int choice = scanner.nextInt();
+                    if (choice == 1){
+                        showEnrolledStudentsofCourse();
+                    } else if (choice == 2) {
+                        addStudentToCourse();
+                    } else if (choice == 3) {
+                        removeStudentFromaCourse();
+                    }
+                    else if (choice == 4){
+                        running2 = false;
+                    }
+                }
+
 
             }
             else if (input == 3){

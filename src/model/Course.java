@@ -3,6 +3,7 @@ package model;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 public class Course {
     private String name;
@@ -15,6 +16,7 @@ public class Course {
     private LocalTime startTime;
     private LocalTime endTime;
     private LocalDate examDate;
+    public ArrayList<Student> studentsOfThisCourse;
 
 
 
@@ -31,6 +33,7 @@ public class Course {
         this.startTime = startTime;
         this.endTime = endTime;
         this.examDate = examDate;
+        studentsOfThisCourse = new ArrayList<>();
     }
 
 
