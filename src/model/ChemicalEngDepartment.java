@@ -6,6 +6,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class ChemicalEngDepartment extends Department {
+    public static String name = "Chemical Engineering Department";
     public static ArrayList<Course> ChemicalEngCourses = new ArrayList<>();
     public ChemicalEngDepartment(){
         super();

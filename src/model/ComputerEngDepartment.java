@@ -6,6 +6,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class ComputerEngDepartment extends Department {
+    public static String name = "Computer Engineering Department";
    static SpecializedCourse course1;
     static SpecializedCourse course2;
     static SpecializedCourse course3;

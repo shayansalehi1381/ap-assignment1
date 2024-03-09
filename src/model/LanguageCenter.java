@@ -6,6 +6,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class LanguageCenter extends Department {
+    public static String name = "Language Center Department";
     public static ArrayList<Course> LanguageCourses = new ArrayList<>();
     public LanguageCenter() {
         LanguageCourses.add(new GeneralCourse("English",51,"Vaezi",100,2,true, DayOfWeek.SUNDAY, LocalTime.of(8,0),LocalTime.of(9,0), LocalDate.of(2024,6,11)));

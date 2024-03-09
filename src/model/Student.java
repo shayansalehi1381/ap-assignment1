@@ -181,17 +181,96 @@ public class Student extends User {
             if (c.getCode() == input){
                 course = c;
             }
+        }
+        int unitCalculate = studentUnits;
+       unitCalculate+= course.getUnit();
+        if (unitCalculate <= 20) {
+            if (hasTimeConflict(course) == false){
+                if (hasExamDateConflict(course) == false){
+                    if (courseIsFull(course) == false){
+                        if (generalCourseIsMoreThanFiveUnit(this,course) == false){
+
+                            this.courses.add(course);
+                            course.studentsOfThisCourse.add(this);
+                            this.studentUnits += course.getUnit();
+                            course.setCapacity(course.getCapacity() - 1);
+                        }
+                       else System.out.println("you can't take more than 5 units of general courses!");
+                    }
+                  else System.out.println("the Course Capacity is full");
+                }
+               else System.out.println("2 courses Exam date are in a same day!");
+            }
+                       else {
+                System.out.println("class time has Conflict!");
+            }
+                    }
+        else System.out.println("You can't have more than 20 units in a semester!");
+            }
+
+
+
+
+
+    private boolean hasTimeConflict(Course a) {
+        int i = 0;
+        for (Course c:this.courses){
+            if (a.getStartTime().equals(c.getStartTime())) {
+                i++;
+            }
+        }
+        if (i > 0){
+            return true;
+        }
+        else return false;
+    }
+
+
+    private boolean hasExamDateConflict(Course a) {
+        int i = 0;
+        for (Course c:this.courses){
+            if (a.getExamDate().equals(c.getExamDate())) {
+                i++;
+            }
+        }
+        if (i > 0){
+            return true;
+        }
+        else return false;
+    }
+
+    private boolean courseIsFull(Course course){
+        if (course.getCapacity() > 0 ){
+            return false;
+        }
+        else return true;
+    }
+
+
+    private boolean generalCourseIsMoreThanFiveUnit(Student student,Course course){
+        int i=0;
+        for (Course c:student.courses){
+            if (c.isGeneral() == true){
+                i+=c.getUnit();
+            }
+        }
+        if (course.isGeneral() == true){
+            i+=course.getUnit();
+        }
+        if (i > 5){
+
+            return true;
 
         }
-            this.courses.add(course);
-        course.studentsOfThisCourse.add(this);
-            this.studentUnits+=course.getUnit();
-            course.setCapacity(course.getCapacity()-1);
-
-
+        else return false;
     }
 
-    public int getStudentUnits() {
-        return studentUnits;
-    }
-}
+
+
+
+        }
+
+
+
+
+

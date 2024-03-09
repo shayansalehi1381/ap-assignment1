@@ -147,11 +147,148 @@ public class Admin extends User{
     }
 
     public void removeCourse(){
+        System.out.println("Enter the Course Code to remove from the Department:");
+        int code = scanner.nextInt();
+        if (Math == true){
+            for (int i =MathDepartment.mathCourses.size()-1 ; i>=0 ; i--){
+                Course co = MathDepartment.mathCourses.get(i);
+                if (co.getCode() == code){
+                    MathDepartment.mathCourses.remove(i);
+
+                    System.out.println("Course "+co.getName()+" has removed!");
+                }
+            }
+        } else if (CE == true) {
+            for (int i =ComputerEngDepartment.CECourses.size()-1 ; i>=0 ; i--){
+                Course co = ComputerEngDepartment.CECourses.get(i);
+                if (co.getCode() == code){
+                    ComputerEngDepartment.CECourses.remove(i);
+
+                    System.out.println("Course "+co.getName()+" has removed!");
+                }
+            }
+        }
+        else if (CHE == true) {
+            for (int i =ChemicalEngDepartment.ChemicalEngCourses.size()-1 ; i>=0 ; i--){
+                Course co = ChemicalEngDepartment.ChemicalEngCourses.get(i);
+                if (co.getCode() == code){
+                    ChemicalEngDepartment.ChemicalEngCourses.remove(i);
+
+                    System.out.println("Course "+co.getName()+" has removed!");
+                }
+            }
+        }
+        else if (EE == true) {
+            for (int i =ElectricalEngDepartment.EEcourses.size()-1 ; i>=0 ; i--){
+                Course co = ElectricalEngDepartment.EEcourses.get(i);
+                if (co.getCode() == code){
+                    ElectricalEngDepartment.EEcourses.remove(i);
+
+                    System.out.println("Course "+co.getName()+" has removed!");
+                }
+            }
+        }
+        else if (LC == true) {
+            for (int i =LanguageCenter.LanguageCourses.size()-1 ; i>=0 ; i--){
+                Course co = LanguageCenter.LanguageCourses.get(i);
+                if (co.getCode() == code){
+                    LanguageCenter.LanguageCourses.remove(i);
+
+                    System.out.println("Course "+co.getName()+" has removed!");
+                }
+            }
+        }
+        else if (RC == true) {
+            for (int i =ReligiousCenter.ReligiousCourses.size()-1 ; i>=0 ; i--){
+                Course co = ReligiousCenter.ReligiousCourses.get(i);
+                if (co.getCode() == code){
+                    ReligiousCenter.ReligiousCourses.remove(i);
+
+                    System.out.println("Course "+co.getName()+" has removed!");
+                }
+            }
+        }
+
+
 
     }
 
     public void increaseCapacityCourse(){
+        if (Math == true){
+            System.out.println("Enter the Course Code to increase the Capacity:");
+            int code = scanner.nextInt();
+            for (Course c:MathDepartment.mathCourses){
+                if (c.getCode() == code){
+                    System.out.println("How many to Increase?");
+                    int HowMany = scanner.nextInt();
+                    c.setCapacity(c.getCapacity()+HowMany);
+                    System.out.println("Course Capacity "+HowMany+" Increased!");
+                }
+            }
 
+        } else if (CE == true) {
+            System.out.println("Enter the Course Code to increase the Capacity:");
+            int code = scanner.nextInt();
+            for (Course c:ComputerEngDepartment.CECourses){
+                if (c.getCode() == code){
+                    System.out.println("How many to Increase?");
+                    int HowMany = scanner.nextInt();
+                    c.setCapacity(c.getCapacity()+HowMany);
+                    System.out.println("Course Capacity "+HowMany+" Increased!");
+                }
+            }
+        } else if (CHE == true) {
+            System.out.println("Enter the Course Code to increase the Capacity:");
+            int code = scanner.nextInt();
+            for (Course c:ChemicalEngDepartment.ChemicalEngCourses){
+                if (c.getCode() == code){
+                    System.out.println("How many to Increase?");
+                    int HowMany = scanner.nextInt();
+                    c.setCapacity(c.getCapacity()+HowMany);
+                    System.out.println("Course Capacity "+HowMany+" Increased!");
+                }
+
+            }
+        }
+        else if (EE == true) {
+            System.out.println("Enter the Course Code to increase the Capacity:");
+            int code = scanner.nextInt();
+            for (Course c:ElectricalEngDepartment.EEcourses){
+                if (c.getCode() == code){
+                    System.out.println("How many to Increase?");
+                    int HowMany = scanner.nextInt();
+                    c.setCapacity(c.getCapacity()+HowMany);
+                    System.out.println("Course Capacity "+HowMany+" Increased!");
+                }
+
+            }
+        }
+        else if (LC == true) {
+            System.out.println("Enter the Course Code to increase the Capacity:");
+            int code = scanner.nextInt();
+            for (Course c:LanguageCenter.LanguageCourses){
+                if (c.getCode() == code){
+                    System.out.println("How many to Increase?");
+                    int HowMany = scanner.nextInt();
+                    c.setCapacity(c.getCapacity()+HowMany);
+                    System.out.println("Course Capacity "+HowMany+" Increased!");
+                }
+
+            }
+        }
+        else if (RC == true) {
+            System.out.println("Enter the Course Code to increase the Capacity:");
+            int code = scanner.nextInt();
+            for (Course c:ReligiousCenter.ReligiousCourses){
+                if (c.getCode() == code){
+                    System.out.println("How many to Increase?");
+                    int HowMany = scanner.nextInt();
+                    c.setCapacity(c.getCapacity()+HowMany);
+                    System.out.println("Course Capacity "+HowMany+" Increased!");
+                }
+
+            }
+        }
     }
 
     public void showEnrolledStudentsofCourse(){
@@ -221,36 +358,188 @@ public class Admin extends User{
     }
 
     public void removeStudentFromaCourse(){
+        if (Math == true){
+            for (Course c :MathDepartment.mathCourses){
+                System.out.println("Course name: "+c.getName()+", Course Code: "+c.getCode());
+                for (Student s : c.studentsOfThisCourse){
+                    System.out.println("Studentd ID: "+s);
+                }
+                System.out.println("***************************************");
+            }
+        }else if (CE == true){
+            for (Course c :ComputerEngDepartment.CECourses){
+                System.out.println("Course name: "+c.getName()+", Course Code: "+c.getCode());
+                for (Student s : c.studentsOfThisCourse){
+                    System.out.println("Studentd ID: "+s);
+                }
+                System.out.println("***************************************");
+            }
+        }
+        else if (CHE == true){
+            for (Course c :ChemicalEngDepartment.ChemicalEngCourses){
+                System.out.println("Course name: "+c.getName()+", Course Code: "+c.getCode());
+                for (Student s : c.studentsOfThisCourse){
+                    System.out.println("Studentd ID: "+s);
+                }
+                System.out.println("***************************************");
+            }
+        }else if (EE == true){
+            for (Course c :ElectricalEngDepartment.EEcourses){
+                System.out.println("Course name: "+c.getName()+", Course Code: "+c.getCode());
+                for (Student s : c.studentsOfThisCourse){
+                    System.out.println("Studentd ID: "+s);
+                }
+                System.out.println("***************************************");
+            }
+        }else if (LC == true){
+            for (Course c :LanguageCenter.LanguageCourses){
+                System.out.println("Course name: "+c.getName()+", Course Code: "+c.getCode());
+                for (Student s : c.studentsOfThisCourse){
+                    System.out.println("Studentd ID: "+s);
+                }
+                System.out.println("***************************************");
+            }
+        }
+        else if (RC == true){
+            for (Course c :ReligiousCenter.ReligiousCourses){
+                System.out.println("Course name: "+c.getName()+", Course Code: "+c.getCode());
+                for (Student s : c.studentsOfThisCourse){
+                    System.out.println("Studentd ID: "+s);
+                }
+                System.out.println("***************************************");
+            }
+        }
 
+        System.out.println("Enter the Student ID: ");
+        String StudentId= scanner.next();
+        for (int j = Student.students.size() -1 ; j >= 0 ; j--){
+            Student s = Student.students.get(j);
+            if (s.getName().equals(StudentId)){
+                System.out.println("Enter the Course Code to remove "+s.getName()+" from:");
+                int code = scanner.nextInt();
+                for (int i = s.courses.size()-1; i >= 0 ; i--){
+                    Course co = s.courses.get(i);
+                    if (code == co.getCode()){
+                        s.courses.remove(i);
+                        s.studentUnits-=co.getUnit();
+                        co.setCapacity(co.getCapacity()+1);
+                        co.studentsOfThisCourse.remove(s);
+                        System.out.println("Student Removed from this Course!");
+                    }
+                    else {
+                        System.out.println("Wrong Code");
+                        break;
+                    }
+                }
+            }
+
+        }
     }
 
     public void addStudentToCourse(){
         System.out.println("Enter the Student ID: ");
         String StudentID = scanner.next();
-        for (Student s: Student.students){
-            if (s.getName().equals(StudentID)){
-                System.out.println("Enter the Course Code:");
-                int Code =scanner.nextInt();
-                for (Course c :Department.allCourses){
-                    if (c.getCode() == Code){
-                        System.out.println(c);
-                        if (c.getCapacity() > 0){
-                            c.studentsOfThisCourse.add((s));
-                            c.setCapacity(c.getCapacity()-1);
-                            s.studentUnits+=c.getUnit();
-                            s.courses.add(c);
+        for (int i = Student.students.size()-1 ; i >= 0 ; i--){
+
+            Student s = Student.students.get(i);
+            if (StudentID.equals(s.getName())){
+
+                    System.out.println("Enter the Course Code:");
+                    int Code =scanner.nextInt();
+                    if (Math == true){
+                        for (Course c : MathDepartment.mathCourses){
+                            if (c.getCode() == Code){
+                                System.out.println("Course name: "+c.getName()+", Course Code: "+c.getCode());
+                                if (c.getCapacity() > 0){
+                                    c.studentsOfThisCourse.add((s));
+                                    c.setCapacity(c.getCapacity()-1);
+                                    s.studentUnits+=c.getUnit();
+                                    s.courses.add(c);
+                                }
+                                else {
+                                    System.out.println("The capacity of "+c.getName()+" is full");
+                                }
+                            }
                         }
-                        else {
-                            System.out.println("The capacity of "+c.getName()+" is full");
+                    } else if (CE == true) {
+                        for (Course c: ComputerEngDepartment.CECourses){
+                            if (c.getCode() == Code){
+                                System.out.println("Course name: "+c.getName()+", Course Code: "+c.getCode());
+                                if (c.getCapacity() > 0){
+                                    c.studentsOfThisCourse.add((s));
+                                    c.setCapacity(c.getCapacity()-1);
+                                    s.studentUnits+=c.getUnit();
+                                    s.courses.add(c);
+                                }
+                                else {
+                                    System.out.println("The capacity of "+c.getName()+" is full");
+                                }
+                            }
+                        }
+                    } else if (CHE == true) {
+                        for (Course c:ChemicalEngDepartment.ChemicalEngCourses){
+                            if (c.getCode() == Code){
+                                System.out.println("Course name: "+c.getName()+", Course Code: "+c.getCode());
+                                if (c.getCapacity() > 0){
+                                    c.studentsOfThisCourse.add((s));
+                                    c.setCapacity(c.getCapacity()-1);
+                                    s.studentUnits+=c.getUnit();
+                                    s.courses.add(c);
+                                }
+                                else {
+                                    System.out.println("The capacity of "+c.getName()+" is full");
+                                }
+                            }
+                        }
+
+                    } else if (EE == true) {
+                        for (Course c : ElectricalEngDepartment.EEcourses){
+                            if (c.getCode() == Code){
+                                System.out.println("Course name: "+c.getName()+", Course Code: "+c.getCode());
+                                if (c.getCapacity() > 0){
+                                    c.studentsOfThisCourse.add((s));
+                                    c.setCapacity(c.getCapacity()-1);
+                                    s.studentUnits+=c.getUnit();
+                                    s.courses.add(c);
+                                }
+                                else {
+                                    System.out.println("The capacity of "+c.getName()+" is full");
+                                }
+                            }
+                        }
+
+                    } else if (LC == true) {
+                        for (Course c : LanguageCenter.LanguageCourses){
+                            if (c.getCode() == Code){
+                                System.out.println("Course name: "+c.getName()+", Course Code: "+c.getCode());
+                                if (c.getCapacity() > 0){
+                                    c.studentsOfThisCourse.add((s));
+                                    c.setCapacity(c.getCapacity()-1);
+                                    s.studentUnits+=c.getUnit();
+                                    s.courses.add(c);
+                                }
+                                else {
+                                    System.out.println("The capacity of "+c.getName()+" is full");
+                                }
+                            }
+                        }
+                    } else if (RC == true) {
+                        for (Course c : ReligiousCenter.ReligiousCourses){
+                            if (c.getCode() == Code){
+                                System.out.println("Course name: "+c.getName()+", Course Code: "+c.getCode());
+                                if (c.getCapacity() > 0){
+                                    c.studentsOfThisCourse.add((s));
+                                    c.setCapacity(c.getCapacity()-1);
+                                    s.studentUnits+=c.getUnit();
+                                    s.courses.add(c);
+                                }
+                                else {
+                                    System.out.println("The capacity of "+c.getName()+" is full");
+                                }
+                            }
                         }
                     }
                 }
-            }
-
-            else {
-                System.out.println("There is no Student with this ID!");
-                break;
-            }
         }
 
 
@@ -333,16 +622,43 @@ public class Admin extends User{
         boolean running = true;
         while (running){
             System.out.println("**************************************************************************************************************************************************************************************");
+            if (Math == true){
+                System.out.println("Welcome to "+MathDepartment.name);
+            } else if (CE == true) {
+                System.out.println("Welcome to "+ComputerEngDepartment.name);
+            }else if (CHE == true) {
+                System.out.println("Welcome to "+ChemicalEngDepartment.name);
+            }else if (EE == true) {
+                System.out.println("Welcome to "+ElectricalEngDepartment.name);
+            }else if (LC == true) {
+                System.out.println("Welcome to "+LanguageCenter.name);
+            }else if (RC == true) {
+                System.out.println("Welcome to "+ReligiousCenter.name);
+            }
             System.out.println("1.Add a New Course to this Department Or Remove a Course From this Department");
             System.out.println("2.show list of Enrolled Students in this Department");
-            System.out.println("3.Back");
+            System.out.println("3.Increase the capacity of a Course");
+            System.out.println("4.Back");
             int input = scanner.nextInt();
             if (input == 1){
-          //  addNewCourse();
-            }
-            else if (input == 2){
                 boolean running2 = true;
                 while (running2){
+                    System.out.println("1.Add a New Course");
+                    System.out.println("2.Remove a Course");
+                    System.out.println("3.Back");
+                    int choose = scanner.nextInt();
+                    if (choose == 1){
+                        addNewCourse();
+                    } else if (choose == 2) {
+                        removeCourse();
+                    } else if (choose == 3) {
+                        running2 = false;
+                    }
+                }
+            }
+            else if (input == 2){
+                boolean running3 = true;
+                while (running3){
                     System.out.println("1.show Enrolled Students of a Course");
                     System.out.println("2.add a Student to a Course");
                     System.out.println("3.Remove a Student from a Course");
@@ -356,13 +672,18 @@ public class Admin extends User{
                         removeStudentFromaCourse();
                     }
                     else if (choice == 4){
-                        running2 = false;
+                        running3 = false;
                     }
                 }
-
-
-            }
-            else if (input == 3){
+            } else if (input == 3) {
+                increaseCapacityCourse();
+            } else if (input == 4){
+                Math = false;
+                CE = false;
+                CHE = false;
+                EE = false;
+                LC = false;
+                RC = false;
                 running = false;
             }
         }

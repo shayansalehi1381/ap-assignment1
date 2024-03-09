@@ -6,6 +6,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class ElectricalEngDepartment extends Department{
+    public static String name = "Electrical Engineering Department";
     public static ArrayList<Course> EEcourses = new ArrayList<>();
     public ElectricalEngDepartment() {
         EEcourses.add(new SpecializedCourse("Electronic",41,"   Raoufi",40,3,false, DayOfWeek.SUNDAY, LocalTime.of(8,0),LocalTime.of(10,0), LocalDate.of(2024,6,3)));

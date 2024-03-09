@@ -8,6 +8,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class ReligiousCenter extends Department {
+    public static String name = "Religiuos Center Department";
     public static ArrayList<Course> ReligiousCourses = new ArrayList<>();
     public ReligiousCenter() {
         ReligiousCourses.add(new GeneralCourse("Quran",61,"Norouzi",20,2,true, DayOfWeek.WEDNESDAY, LocalTime.of(15,0),LocalTime.of(16,0), LocalDate.of(2024,6,5)));
