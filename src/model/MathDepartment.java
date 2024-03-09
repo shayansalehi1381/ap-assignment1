@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class MathDepartment extends Department{
 
+
       public static ArrayList<Course> mathCourses = new ArrayList<>();
 
     public MathDepartment(){
