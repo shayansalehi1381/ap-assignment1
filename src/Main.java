@@ -24,6 +24,10 @@ public class Main {
                         "\n1.Login as Student/Admin" +
                                 "\n2.Sign_up as Student");
                 System.out.println("3.Exit.");
+
+
+                System.out.println("Admin username:   admin");
+                System.out.println("Admin Pass: 123456");
                 int input = scanner.nextInt();
                 if (input == 1) {
                     login(scanner);

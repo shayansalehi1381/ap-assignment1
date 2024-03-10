@@ -243,74 +243,92 @@ catch (InputMismatchException e) {
         if (Math == true) {
             System.out.println("Enter the Course Code to increase the Capacity:");
             int code = scanner.nextInt();
-            for (Course c : MathDepartment.mathCourses) {
-                if (c.getCode() == code) {
-                    System.out.println("How many to Increase?");
-                    int HowMany = scanner.nextInt();
-                    c.setCapacity(c.getCapacity() + HowMany);
-                    System.out.println("Course Capacity " + HowMany + " Increased!");
+            if (Department.allCodeCourses.contains(code)){
+                for (Course c : MathDepartment.mathCourses) {
+                    if (c.getCode() == code) {
+                        System.out.println("How many to Increase?");
+                        int HowMany = scanner.nextInt();
+                        c.setCapacity(c.getCapacity() + HowMany);
+                        System.out.println("Course Capacity " + HowMany + " Increased!");
+                    }
                 }
             }
+           else System.out.println("Wrong code");
 
         } else if (CE == true) {
             System.out.println("Enter the Course Code to increase the Capacity:");
             int code = scanner.nextInt();
-            for (Course c : ComputerEngDepartment.CECourses) {
-                if (c.getCode() == code) {
-                    System.out.println("How many to Increase?");
-                    int HowMany = scanner.nextInt();
-                    c.setCapacity(c.getCapacity() + HowMany);
-                    System.out.println("Course Capacity " + HowMany + " Increased!");
+            if (Department.allCodeCourses.contains(code)){
+                for (Course c : ComputerEngDepartment.CECourses) {
+                    if (c.getCode() == code) {
+                        System.out.println("How many to Increase?");
+                        int HowMany = scanner.nextInt();
+                        c.setCapacity(c.getCapacity() + HowMany);
+                        System.out.println("Course Capacity " + HowMany + " Increased!");
+                    }
                 }
-            }
+            }else System.out.println("wrong code");
+
         } else if (CHE == true) {
             System.out.println("Enter the Course Code to increase the Capacity:");
             int code = scanner.nextInt();
-            for (Course c : ChemicalEngDepartment.ChemicalEngCourses) {
-                if (c.getCode() == code) {
-                    System.out.println("How many to Increase?");
-                    int HowMany = scanner.nextInt();
-                    c.setCapacity(c.getCapacity() + HowMany);
-                    System.out.println("Course Capacity " + HowMany + " Increased!");
-                }
+            if (Department.allCodeCourses.contains(code)){
+                for (Course c : ChemicalEngDepartment.ChemicalEngCourses) {
+                    if (c.getCode() == code) {
+                        System.out.println("How many to Increase?");
+                        int HowMany = scanner.nextInt();
+                        c.setCapacity(c.getCapacity() + HowMany);
+                        System.out.println("Course Capacity " + HowMany + " Increased!");
+                    }
 
-            }
+                }
+            }else System.out.println("wrong code");
+
         } else if (EE == true) {
             System.out.println("Enter the Course Code to increase the Capacity:");
             int code = scanner.nextInt();
-            for (Course c : ElectricalEngDepartment.EEcourses) {
-                if (c.getCode() == code) {
-                    System.out.println("How many to Increase?");
-                    int HowMany = scanner.nextInt();
-                    c.setCapacity(c.getCapacity() + HowMany);
-                    System.out.println("Course Capacity " + HowMany + " Increased!");
-                }
+            if (Department.allCodeCourses.contains(code)){
+                for (Course c : ElectricalEngDepartment.EEcourses) {
+                    if (c.getCode() == code) {
+                        System.out.println("How many to Increase?");
+                        int HowMany = scanner.nextInt();
+                        c.setCapacity(c.getCapacity() + HowMany);
+                        System.out.println("Course Capacity " + HowMany + " Increased!");
+                    }
 
+                }
             }
+        else System.out.println("wrong code");
         } else if (LC == true) {
             System.out.println("Enter the Course Code to increase the Capacity:");
             int code = scanner.nextInt();
-            for (Course c : LanguageCenter.LanguageCourses) {
-                if (c.getCode() == code) {
-                    System.out.println("How many to Increase?");
-                    int HowMany = scanner.nextInt();
-                    c.setCapacity(c.getCapacity() + HowMany);
-                    System.out.println("Course Capacity " + HowMany + " Increased!");
-                }
+            if (Department.allCodeCourses.contains(code)){
+                for (Course c : LanguageCenter.LanguageCourses) {
+                    if (c.getCode() == code) {
+                        System.out.println("How many to Increase?");
+                        int HowMany = scanner.nextInt();
+                        c.setCapacity(c.getCapacity() + HowMany);
+                        System.out.println("Course Capacity " + HowMany + " Increased!");
+                    }
 
-            }
+                }
+            }else System.out.println("wrong code");
+
         } else if (RC == true) {
             System.out.println("Enter the Course Code to increase the Capacity:");
             int code = scanner.nextInt();
-            for (Course c : ReligiousCenter.ReligiousCourses) {
-                if (c.getCode() == code) {
-                    System.out.println("How many to Increase?");
-                    int HowMany = scanner.nextInt();
-                    c.setCapacity(c.getCapacity() + HowMany);
-                    System.out.println("Course Capacity " + HowMany + " Increased!");
-                }
+            if (Department.allCodeCourses.contains(code)){
+                for (Course c : ReligiousCenter.ReligiousCourses) {
+                    if (c.getCode() == code) {
+                        System.out.println("How many to Increase?");
+                        int HowMany = scanner.nextInt();
+                        c.setCapacity(c.getCapacity() + HowMany);
+                        System.out.println("Course Capacity " + HowMany + " Increased!");
+                    }
 
-            }
+                }
+            }else System.out.println("wrong code");
+
         }
     }catch (InputMismatchException e) {
         System.out.println("Invalid input. Please enter an integer!");
@@ -323,13 +341,17 @@ catch (InputMismatchException e) {
             System.out.println("Enter the Course Code to show its Students:");
             try {
             int code = scanner.nextInt();
-            for (Course c : MathDepartment.mathCourses) {
-                if (c.getCode() == code) {
-                    for (Student s : c.studentsOfThisCourse) {
-                        System.out.println(s);
+            if (Department.allCodeCourses.contains(code)){
+                for (Course c : MathDepartment.mathCourses) {
+                    if (c.getCode() == code) {
+                        for (Student s : c.studentsOfThisCourse) {
+                            System.out.println(s);
+                        }
                     }
                 }
             }
+            else System.out.println("wrong code");
+
         } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter an integer!");
                 scanner.nextLine(); // Clear the scanner buffer
@@ -338,13 +360,16 @@ catch (InputMismatchException e) {
             System.out.println("Enter the Course Code to show its Students:");
             try {
             int code = scanner.nextInt();
-            for (Course c : ComputerEngDepartment.CECourses) {
-                if (c.getCode() == code) {
-                    for (Student s : c.studentsOfThisCourse) {
-                        System.out.println(s);
+            if (Department.allCodeCourses.contains(code)){
+                for (Course c : ComputerEngDepartment.CECourses) {
+                    if (c.getCode() == code) {
+                        for (Student s : c.studentsOfThisCourse) {
+                            System.out.println(s);
+                        }
                     }
                 }
-            }
+            }else System.out.println("wrong code");
+
         }  catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter an integer!");
                 scanner.nextLine(); // Clear the scanner buffer
@@ -353,13 +378,17 @@ catch (InputMismatchException e) {
             System.out.println("Enter the Course Code to show its Students:");
             try {
             int code = scanner.nextInt();
-            for (Course c : ChemicalEngDepartment.ChemicalEngCourses) {
-                if (c.getCode() == code) {
-                    for (Student s : c.studentsOfThisCourse) {
-                        System.out.println(s);
+            if (Department.allCodeCourses.contains(code)){
+                for (Course c : ChemicalEngDepartment.ChemicalEngCourses) {
+                    if (c.getCode() == code) {
+                        for (Student s : c.studentsOfThisCourse) {
+                            System.out.println(s);
+                        }
                     }
                 }
             }
+            else System.out.println("wrong code");
+
         } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter an integer!");
                 scanner.nextLine(); // Clear the scanner buffer
@@ -368,13 +397,16 @@ catch (InputMismatchException e) {
             System.out.println("Enter the Course Code to show its Students:");
             try {
             int code = scanner.nextInt();
-            for (Course c : ElectricalEngDepartment.EEcourses) {
-                if (c.getCode() == code) {
-                    for (Student s : c.studentsOfThisCourse) {
-                        System.out.println(s);
+            if (Department.allCodeCourses.contains(code)){
+                for (Course c : ElectricalEngDepartment.EEcourses) {
+                    if (c.getCode() == code) {
+                        for (Student s : c.studentsOfThisCourse) {
+                            System.out.println(s);
+                        }
                     }
                 }
-            }
+            }else System.out.println("wrong code");
+
         }
             catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter an integer!");
@@ -472,33 +504,35 @@ catch (InputMismatchException e) {
 
         System.out.println("Enter the Student ID: ");
         String StudentId= scanner.next();
-        for (int j = Student.students.size() -1 ; j >= 0 ; j--){
-            Student s = Student.students.get(j);
-            if (s.getName().equals(StudentId)) {
-                System.out.println("Enter the Course Code to remove " + s.getName() + " from:");
-                try {
-                int code = scanner.nextInt();
-                for (int i = s.courses.size() - 1; i >= 0; i--) {
-                    Course co = s.courses.get(i);
-                    if (code == co.getCode()) {
-                        s.courses.remove(i);
-                        s.studentUnits -= co.getUnit();
-                        co.setCapacity(co.getCapacity() + 1);
-                        co.studentsOfThisCourse.remove(s);
-                        System.out.println("Student Removed from this Course!");
-                    } else {
-                        System.out.println("Wrong Code");
-                        break;
+            for (int j = Student.students.size() -1 ; j >= 0 ; j--){
+                Student s = Student.students.get(j);
+                if (s.getName().equals(StudentId)) {
+                    System.out.println("Enter the Course Code to remove " + s.getName() + " from:");
+                    try {
+                        int code = scanner.nextInt();
+                        for (int i = s.courses.size() - 1; i >= 0; i--) {
+                            Course co = s.courses.get(i);
+                            if (code == co.getCode()) {
+                                s.courses.remove(i);
+                                s.studentUnits -= co.getUnit();
+                                co.setCapacity(co.getCapacity() + 1);
+                                co.studentsOfThisCourse.remove(s);
+                                System.out.println("Student Removed from this Course!");
+                            } else {
+                                System.out.println("Wrong Code");
+                                break;
+                            }
+                        }
+                    }
+                    catch (InputMismatchException e) {
+                        System.out.println("Invalid input. Please enter an integer!");
+                        scanner.nextLine(); // Clear the scanner buffer
                     }
                 }
-            }
-                catch (InputMismatchException e) {
-                    System.out.println("Invalid input. Please enter an integer!");
-                    scanner.nextLine(); // Clear the scanner buffer
-                }
+
             }
 
-        }
+
     }
 
     public void addStudentToCourse(){
@@ -511,93 +545,97 @@ catch (InputMismatchException e) {
 
                 System.out.println("Enter the Course Code:");
                 int Code = scanner.nextInt();
-                if (Math == true) {
-                    for (Course c : MathDepartment.mathCourses) {
-                        if (c.getCode() == Code) {
-                            System.out.println("Course name: " + c.getName() + ", Course Code: " + c.getCode());
-                            if (c.getCapacity() > 0) {
-                                c.studentsOfThisCourse.add((s));
-                                c.setCapacity(c.getCapacity() - 1);
-                                s.studentUnits += c.getUnit();
-                                s.courses.add(c);
-                            } else {
-                                System.out.println("The capacity of " + c.getName() + " is full");
+                if (Department.allCodeCourses.contains(Code)){
+                    if (Math == true) {
+                        for (Course c : MathDepartment.mathCourses) {
+                            if (c.getCode() == Code) {
+                                System.out.println("Course name: " + c.getName() + ", Course Code: " + c.getCode());
+                                if (c.getCapacity() > 0) {
+                                    c.studentsOfThisCourse.add((s));
+                                    c.setCapacity(c.getCapacity() - 1);
+                                    s.studentUnits += c.getUnit();
+                                    s.courses.add(c);
+                                } else {
+                                    System.out.println("The capacity of " + c.getName() + " is full");
+                                }
                             }
                         }
-                    }
-                } else if (CE == true) {
-                    for (Course c : ComputerEngDepartment.CECourses) {
-                        if (c.getCode() == Code) {
-                            System.out.println("Course name: " + c.getName() + ", Course Code: " + c.getCode());
-                            if (c.getCapacity() > 0) {
-                                c.studentsOfThisCourse.add((s));
-                                c.setCapacity(c.getCapacity() - 1);
-                                s.studentUnits += c.getUnit();
-                                s.courses.add(c);
-                            } else {
-                                System.out.println("The capacity of " + c.getName() + " is full");
+                    } else if (CE == true) {
+                        for (Course c : ComputerEngDepartment.CECourses) {
+                            if (c.getCode() == Code) {
+                                System.out.println("Course name: " + c.getName() + ", Course Code: " + c.getCode());
+                                if (c.getCapacity() > 0) {
+                                    c.studentsOfThisCourse.add((s));
+                                    c.setCapacity(c.getCapacity() - 1);
+                                    s.studentUnits += c.getUnit();
+                                    s.courses.add(c);
+                                } else {
+                                    System.out.println("The capacity of " + c.getName() + " is full");
+                                }
                             }
                         }
-                    }
-                } else if (CHE == true) {
-                    for (Course c : ChemicalEngDepartment.ChemicalEngCourses) {
-                        if (c.getCode() == Code) {
-                            System.out.println("Course name: " + c.getName() + ", Course Code: " + c.getCode());
-                            if (c.getCapacity() > 0) {
-                                c.studentsOfThisCourse.add((s));
-                                c.setCapacity(c.getCapacity() - 1);
-                                s.studentUnits += c.getUnit();
-                                s.courses.add(c);
-                            } else {
-                                System.out.println("The capacity of " + c.getName() + " is full");
+                    } else if (CHE == true) {
+                        for (Course c : ChemicalEngDepartment.ChemicalEngCourses) {
+                            if (c.getCode() == Code) {
+                                System.out.println("Course name: " + c.getName() + ", Course Code: " + c.getCode());
+                                if (c.getCapacity() > 0) {
+                                    c.studentsOfThisCourse.add((s));
+                                    c.setCapacity(c.getCapacity() - 1);
+                                    s.studentUnits += c.getUnit();
+                                    s.courses.add(c);
+                                } else {
+                                    System.out.println("The capacity of " + c.getName() + " is full");
+                                }
                             }
                         }
-                    }
 
-                } else if (EE == true) {
-                    for (Course c : ElectricalEngDepartment.EEcourses) {
-                        if (c.getCode() == Code) {
-                            System.out.println("Course name: " + c.getName() + ", Course Code: " + c.getCode());
-                            if (c.getCapacity() > 0) {
-                                c.studentsOfThisCourse.add((s));
-                                c.setCapacity(c.getCapacity() - 1);
-                                s.studentUnits += c.getUnit();
-                                s.courses.add(c);
-                            } else {
-                                System.out.println("The capacity of " + c.getName() + " is full");
+                    } else if (EE == true) {
+                        for (Course c : ElectricalEngDepartment.EEcourses) {
+                            if (c.getCode() == Code) {
+                                System.out.println("Course name: " + c.getName() + ", Course Code: " + c.getCode());
+                                if (c.getCapacity() > 0) {
+                                    c.studentsOfThisCourse.add((s));
+                                    c.setCapacity(c.getCapacity() - 1);
+                                    s.studentUnits += c.getUnit();
+                                    s.courses.add(c);
+                                } else {
+                                    System.out.println("The capacity of " + c.getName() + " is full");
+                                }
                             }
                         }
-                    }
 
-                } else if (LC == true) {
-                    for (Course c : LanguageCenter.LanguageCourses) {
-                        if (c.getCode() == Code) {
-                            System.out.println("Course name: " + c.getName() + ", Course Code: " + c.getCode());
-                            if (c.getCapacity() > 0) {
-                                c.studentsOfThisCourse.add((s));
-                                c.setCapacity(c.getCapacity() - 1);
-                                s.studentUnits += c.getUnit();
-                                s.courses.add(c);
-                            } else {
-                                System.out.println("The capacity of " + c.getName() + " is full");
+                    } else if (LC == true) {
+                        for (Course c : LanguageCenter.LanguageCourses) {
+                            if (c.getCode() == Code) {
+                                System.out.println("Course name: " + c.getName() + ", Course Code: " + c.getCode());
+                                if (c.getCapacity() > 0) {
+                                    c.studentsOfThisCourse.add((s));
+                                    c.setCapacity(c.getCapacity() - 1);
+                                    s.studentUnits += c.getUnit();
+                                    s.courses.add(c);
+                                } else {
+                                    System.out.println("The capacity of " + c.getName() + " is full");
+                                }
                             }
                         }
-                    }
-                } else if (RC == true) {
-                    for (Course c : ReligiousCenter.ReligiousCourses) {
-                        if (c.getCode() == Code) {
-                            System.out.println("Course name: " + c.getName() + ", Course Code: " + c.getCode());
-                            if (c.getCapacity() > 0) {
-                                c.studentsOfThisCourse.add((s));
-                                c.setCapacity(c.getCapacity() - 1);
-                                s.studentUnits += c.getUnit();
-                                s.courses.add(c);
-                            } else {
-                                System.out.println("The capacity of " + c.getName() + " is full");
+                    } else if (RC == true) {
+                        for (Course c : ReligiousCenter.ReligiousCourses) {
+                            if (c.getCode() == Code) {
+                                System.out.println("Course name: " + c.getName() + ", Course Code: " + c.getCode());
+                                if (c.getCapacity() > 0) {
+                                    c.studentsOfThisCourse.add((s));
+                                    c.setCapacity(c.getCapacity() - 1);
+                                    s.studentUnits += c.getUnit();
+                                    s.courses.add(c);
+                                } else {
+                                    System.out.println("The capacity of " + c.getName() + " is full");
+                                }
                             }
                         }
                     }
                 }
+                else System.out.println("wrong code");
+
             }
         }
             catch (InputMismatchException e) {
