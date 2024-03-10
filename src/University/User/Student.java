@@ -4,6 +4,7 @@ import University.Course.Course;
 import University.Department.*;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 public class Student extends User {
     static ArrayList<Student> students = new ArrayList<>();
@@ -144,27 +145,30 @@ public class Student extends User {
 
     public void showEnrolledCourses(){
         boolean running = true;
-        while (running){
+        while (running) {
             System.out.println("1.Show Enrolled Courses");
             System.out.println("2.Remove Course");
             System.out.println("3.Back");
+            try {
+
             int input = scanner.nextInt();
-            if (input == 1){
-                if (courses.size() == 0){
+            if (input == 1) {
+                if (courses.size() == 0) {
                     System.out.println("You Have No Courses yet!");
-                }
-                else
-                    for (Course c:this.courses){
+                } else
+                    for (Course c : this.courses) {
                         System.out.println(c);
                     }
-                System.out.println("Total units: "+studentUnits);
-                System.out.println("Number of courses: "+courses.size());
-            }
-            else if (input == 2){
+                System.out.println("Total units: " + studentUnits);
+                System.out.println("Number of courses: " + courses.size());
+            } else if (input == 2) {
                 removeCourse();
-            }
-            else if (input == 3){
+            } else if (input == 3) {
                 running = false;
+            }
+        }catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter an integer!");
+                scanner.nextLine(); // Clear the scanner buffer
             }
         }
 
@@ -172,37 +176,43 @@ public class Student extends User {
 
     public void getCourses() {
         System.out.println("Enter the Course code: ");
-        int input = scanner.nextInt();
-        Course course = null;
-        for (Course c: Department.allCourses){
-            if (c.getCode() == input){
-                course = c;
-            }
-        }
-        int unitCalculate = studentUnits;
-       unitCalculate+= course.getUnit();
-        if (unitCalculate <= 20) {
-            if (hasTimeConflict(course) == false){
-                if (hasExamDateConflict(course) == false){
-                    if (courseIsFull(course) == false){
-                        if (generalCourseIsMoreThanFiveUnit(this,course) == false){
+        try {
 
-                            this.courses.add(course);
-                            course.studentsOfThisCourse.add(this);
-                            this.studentUnits += course.getUnit();
-                            course.setCapacity(course.getCapacity() - 1);
-                        }
-                       else System.out.println("you can't take more than 5 units of general courses!");
-                    }
-                  else System.out.println("the Course Capacity is full");
+
+            int input = scanner.nextInt();
+
+
+            Course course = null;
+            for (Course c : Department.allCourses) {
+                if (c.getCode() == input) {
+                    course = c;
                 }
-               else System.out.println("2 courses Exam date are in a same day!");
             }
-                       else {
-                System.out.println("class time has Conflict!");
-            }
-                    }
-        else System.out.println("You can't have more than 20 units in a semester!");
+            int unitCalculate = studentUnits;
+            unitCalculate += course.getUnit();
+            if (unitCalculate <= 20) {
+                if (hasTimeConflict(course) == false) {
+                    if (hasExamDateConflict(course) == false) {
+                        if (courseIsFull(course) == false) {
+                            if (generalCourseIsMoreThanFiveUnit(this, course) == false) {
+
+                                this.courses.add(course);
+                                course.studentsOfThisCourse.add(this);
+                                this.studentUnits += course.getUnit();
+                                course.setCapacity(course.getCapacity() - 1);
+                            } else System.out.println("you can't take more than 5 units of general courses!");
+                        } else System.out.println("the Course Capacity is full");
+                    } else System.out.println("2 courses Exam date are in a same day!");
+                } else {
+                    System.out.println("class time has Conflict!");
+                }
+            } else System.out.println("You can't have more than 20 units in a semester!");
+
+        }
+        catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter a valid Course code (an integer).");
+            scanner.nextLine(); // Clear the scanner buffer
+        }
             }
 
 
