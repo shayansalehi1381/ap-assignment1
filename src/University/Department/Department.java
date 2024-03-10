@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public abstract class Department {
 
     public static ArrayList<Course>allCourses = new ArrayList<>();
+    public static ArrayList<Integer> allCodeCourses = new ArrayList<Integer>();
 
     public Department(){
     University.departments.add(this);

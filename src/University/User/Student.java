@@ -8,6 +8,7 @@ import java.util.InputMismatchException;
 
 public class Student extends User {
     static ArrayList<Student> students = new ArrayList<>();
+    ArrayList<Integer> codeCourses = new ArrayList<>();
     ArrayList<Course> courses;
     int studentUnits = 0;
 
@@ -142,6 +143,7 @@ public class Student extends User {
 
 
             int input = scanner.nextInt();
+            if (this.codeCourses.contains(input)) {
 
             for (int i = this.courses.size() - 1; i >= 0; i--) {
                 Course c = this.courses.get(i);
@@ -152,6 +154,8 @@ public class Student extends User {
                     c.studentsOfThisCourse.remove(this);
                 }
             }
+        }
+            else System.out.println("Wrong Code!");
         }
         catch (InputMismatchException e) {
             System.out.println("Invalid input. Please enter an integer!");
@@ -197,10 +201,10 @@ public class Student extends User {
 
 
             int input = scanner.nextInt();
-
-
+            if (Department.allCodeCourses.contains(input)) {
             Course course = null;
             for (Course c : Department.allCourses) {
+
                 if (c.getCode() == input) {
                     course = c;
                 }
@@ -224,7 +228,8 @@ public class Student extends User {
                     System.out.println("class time has Conflict!");
                 }
             } else System.out.println("You can't have more than 20 units in a semester!");
-
+        }
+            else System.out.println("Wrong Code");
         }
         catch (InputMismatchException e) {
             System.out.println("Invalid input. Please enter a valid Course code (an integer).");

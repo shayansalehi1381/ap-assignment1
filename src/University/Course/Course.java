@@ -1,5 +1,6 @@
 package University.Course;
 
+import University.Department.Department;
 import University.User.Student;
 
 import java.time.DayOfWeek;
@@ -35,6 +36,7 @@ public class Course {
         this.startTime = startTime;
         this.endTime = endTime;
         this.examDate = examDate;
+        Department.allCodeCourses.add(this.code);
         studentsOfThisCourse = new ArrayList<>();
     }
 
