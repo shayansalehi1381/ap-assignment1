@@ -4,33 +4,38 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        final  Admin admin = new Admin("admin", "123456");
-        final MathDepartment mathDepartment = new MathDepartment();
-        final ComputerEngDepartment computerEngDepartment = new ComputerEngDepartment();
-        final ChemicalEngDepartment chemicalEngDepartment = new ChemicalEngDepartment();
-        final ElectricalEngDepartment electricalEngDepartment = new ElectricalEngDepartment();
-        final LanguageCenter languageCenter = new LanguageCenter();
-        final ReligiousCenter religiousCenter = new ReligiousCenter();
-        System.out.println("*** Welcome to Sharif University of Technology! ***");
-        Scanner scanner = new Scanner(System.in);
-        boolean running = true;
-        while (running) {
-            System.out.println(
-                    "\n1.Login as Student/Admin" +
-                            "\n2.Sign_up as Student");
-            System.out.println("3.Exit.");
-            int input = scanner.nextInt();
-            if (input == 1) {
-                login(scanner);
-            }
-            if (input == 2) {
-                create_User(scanner);
+
+            final  Admin admin = new Admin("admin", "123456");
+            final MathDepartment mathDepartment = new MathDepartment();
+            final ComputerEngDepartment computerEngDepartment = new ComputerEngDepartment();
+            final ChemicalEngDepartment chemicalEngDepartment = new ChemicalEngDepartment();
+            final ElectricalEngDepartment electricalEngDepartment = new ElectricalEngDepartment();
+            final LanguageCenter languageCenter = new LanguageCenter();
+            final ReligiousCenter religiousCenter = new ReligiousCenter();
+            System.out.println("*** Welcome to Sharif University of Technology! ***");
+            Scanner scanner = new Scanner(System.in);
+            boolean running = true;
+            while (running) {
+
+                System.out.println(
+                        "\n1.Login as Student/Admin" +
+                                "\n2.Sign_up as Student");
+                System.out.println("3.Exit.");
+                int input = scanner.nextInt();
+                if (input == 1) {
+                    login(scanner);
+                }
+                else if (input == 2) {
+                    create_User(scanner);
+
+                }
+                else if (input == 3) {
+                    running = false;
 
             }
-            if (input == 3) {
-                running = false;
-            }
         }
+
+
     }
 
 
@@ -82,7 +87,7 @@ public class Main {
 
 
     static void userOption(Scanner scanner, User user) {
-        user.options();
+      user.options();
     }
 
 

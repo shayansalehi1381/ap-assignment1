@@ -68,7 +68,7 @@ public abstract class User {
     }
 
 
-   public abstract void options();
+   public abstract void options() ;
     public String toString(){
         return this.getName();
     }
