@@ -23,21 +23,26 @@ public class Student extends User {
     @Override
     public void options() {
         boolean running = true;
-        while (running){
-                System.out.println("1.show courses of the Departments");
-                System.out.println("2.show Enrolled courses");
-                System.out.println("3.back");
-                int input = scanner.nextInt();
-                if (input == 1) {
-                        showCoursesofDepartmentOrChoose();
-                }
-                else if (input == 2){
-                    showEnrolledCourses();
-                }
-                else if (input == 3){
-                    running = false;
-                }
+        while (running) {
+            try {
+
+            System.out.println("1.show courses of the Departments");
+            System.out.println("2.show Enrolled courses");
+            System.out.println("3.back");
+            int input = scanner.nextInt();
+            if (input == 1) {
+                showCoursesofDepartmentOrChoose();
+            } else if (input == 2) {
+                showEnrolledCourses();
+            } else if (input == 3) {
+                running = false;
+            }
             System.out.println("invalid input! try again");
+        }
+                catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter an integer!");
+                scanner.nextLine(); // Clear the scanner buffer
+            }
             }
         }
 
@@ -61,60 +66,64 @@ public class Student extends User {
             System.out.println("6.See Religious Center Courses");
             System.out.println("7.Choose Course from a Department ");
             System.out.println("8.back");
+        try {
 
-                int choice = scanner.nextInt();
-                if (choice == 1){
-                    System.out.println("***************************************************************************************************************************************************************************************************");
-                    for (Course c: MathDepartment.mathCourses){
-                        System.out.println(c);
-                    }
 
-                    System.out.println("***************************************************************************************************************************************************************************************************");
-                }
-                else if (choice == 2){
-                    System.out.println("***************************************************************************************************************************************************************************************************");
-                    for (Course c: ComputerEngDepartment.CECourses){
-                        System.out.println(c);
-                    }
-
-                    System.out.println("***************************************************************************************************************************************************************************************************");
-                } else if (choice == 3) {
-                    System.out.println("***************************************************************************************************************************************************************************************************");
-                    for (Course c: ChemicalEngDepartment.ChemicalEngCourses){
-                        System.out.println(c);
-                    }
-
-                    System.out.println("***************************************************************************************************************************************************************************************************");
-                } else if (choice == 4) {
-                    System.out.println("***************************************************************************************************************************************************************************************************");
-                    for (Course c: ElectricalEngDepartment.EEcourses){
-                        System.out.println(c);
-                    }
-
-                    System.out.println("***************************************************************************************************************************************************************************************************");
-                } else if (choice == 5) {
-                    System.out.println("***************************************************************************************************************************************************************************************************");
-                    for (Course c: LanguageCenter.LanguageCourses){
-                        System.out.println(c);
-                    }
-
-                    System.out.println("***************************************************************************************************************************************************************************************************");
-                } else if (choice == 6) {
-                    System.out.println("***************************************************************************************************************************************************************************************************");
-                    for (Course c:ReligiousCenter.ReligiousCourses){
-                        System.out.println(c);
-                    }
-
-                    System.out.println("***************************************************************************************************************************************************************************************************");
-
-                }
-                else if (choice == 7){
-                    chooseCourses();
-                }else if (choice == 8) {
-                    running = false;
-
+            int choice = scanner.nextInt();
+            if (choice == 1) {
+                System.out.println("***************************************************************************************************************************************************************************************************");
+                for (Course c : MathDepartment.mathCourses) {
+                    System.out.println(c);
                 }
 
+                System.out.println("***************************************************************************************************************************************************************************************************");
+            } else if (choice == 2) {
+                System.out.println("***************************************************************************************************************************************************************************************************");
+                for (Course c : ComputerEngDepartment.CECourses) {
+                    System.out.println(c);
+                }
+
+                System.out.println("***************************************************************************************************************************************************************************************************");
+            } else if (choice == 3) {
+                System.out.println("***************************************************************************************************************************************************************************************************");
+                for (Course c : ChemicalEngDepartment.ChemicalEngCourses) {
+                    System.out.println(c);
+                }
+
+                System.out.println("***************************************************************************************************************************************************************************************************");
+            } else if (choice == 4) {
+                System.out.println("***************************************************************************************************************************************************************************************************");
+                for (Course c : ElectricalEngDepartment.EEcourses) {
+                    System.out.println(c);
+                }
+
+                System.out.println("***************************************************************************************************************************************************************************************************");
+            } else if (choice == 5) {
+                System.out.println("***************************************************************************************************************************************************************************************************");
+                for (Course c : LanguageCenter.LanguageCourses) {
+                    System.out.println(c);
+                }
+
+                System.out.println("***************************************************************************************************************************************************************************************************");
+            } else if (choice == 6) {
+                System.out.println("***************************************************************************************************************************************************************************************************");
+                for (Course c : ReligiousCenter.ReligiousCourses) {
+                    System.out.println(c);
+                }
+
+                System.out.println("***************************************************************************************************************************************************************************************************");
+
+            } else if (choice == 7) {
+                chooseCourses();
+            } else if (choice == 8) {
+                running = false;
+
+            }
+        }
+        catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter an integer!");
+                scanner.nextLine(); // Clear the scanner buffer
+            }
         }
     }
 
@@ -129,16 +138,24 @@ public class Student extends User {
 
     public void removeCourse(){
         System.out.println("Enter the Course Code to Remove:");
-        int input = scanner.nextInt();
+        try {
 
-        for (int i = this.courses.size() - 1; i >= 0; i--) {
-            Course c = this.courses.get(i);
-            if(c.getCode() == input){
-                courses.remove(i);
-                c.setCapacity(c.getCapacity()+1);
-                this.studentUnits-=c.getUnit();
-                c.studentsOfThisCourse.remove(this);
+
+            int input = scanner.nextInt();
+
+            for (int i = this.courses.size() - 1; i >= 0; i--) {
+                Course c = this.courses.get(i);
+                if (c.getCode() == input) {
+                    courses.remove(i);
+                    c.setCapacity(c.getCapacity() + 1);
+                    this.studentUnits -= c.getUnit();
+                    c.studentsOfThisCourse.remove(this);
+                }
             }
+        }
+        catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter an integer!");
+            scanner.nextLine(); // Clear the scanner buffer
         }
 
     }
