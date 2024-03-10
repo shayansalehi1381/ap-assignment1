@@ -1,10 +1,15 @@
-package model;
+package University.User;
+
+import University.Course.Course;
+import University.Departments.*;
+import University.User.Student;
+import University.User.User;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class Admin extends User{
+public class Admin extends User {
 
     public Admin(String name, String passWord) {
         super(name, passWord);

@@ -1,6 +1,7 @@
-package model;
+package University.Departments;
 
 import University.University;
+import University.Course.Course;
 
 import java.util.ArrayList;
 

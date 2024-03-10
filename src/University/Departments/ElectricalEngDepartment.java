@@ -1,11 +1,15 @@
-package model;
+package University.Departments;
+
+import University.Course.Course;
+import University.Course.GeneralCourse;
+import University.Course.SpecializedCourse;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-public class ElectricalEngDepartment extends Department{
+public class ElectricalEngDepartment extends Department {
     public static String name = "Electrical Engineering Department";
     public static ArrayList<Course> EEcourses = new ArrayList<>();
     public ElectricalEngDepartment() {

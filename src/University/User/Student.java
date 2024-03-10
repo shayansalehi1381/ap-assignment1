@@ -1,10 +1,9 @@
-package model;
+package University.User;
 
-import model.Course;
+import University.Course.Course;
+import University.Departments.*;
 
 import java.util.ArrayList;
-import java.util.Random;
-import java.util.Scanner;
 
 public class Student extends User {
     static ArrayList<Student> students = new ArrayList<>();
@@ -72,21 +71,21 @@ public class Student extends User {
             }
             else if (choice == 2){
                 System.out.println("***************************************************************************************************************************************************************************************************");
-                for (Course c:ComputerEngDepartment.CECourses){
+                for (Course c: ComputerEngDepartment.CECourses){
                     System.out.println(c);
                 }
 
                 System.out.println("***************************************************************************************************************************************************************************************************");
             } else if (choice == 3) {
                 System.out.println("***************************************************************************************************************************************************************************************************");
-                for (Course c:ChemicalEngDepartment.ChemicalEngCourses){
+                for (Course c: ChemicalEngDepartment.ChemicalEngCourses){
                     System.out.println(c);
                 }
 
                 System.out.println("***************************************************************************************************************************************************************************************************");
             } else if (choice == 4) {
                 System.out.println("***************************************************************************************************************************************************************************************************");
-                for (Course c:ElectricalEngDepartment.EEcourses){
+                for (Course c: ElectricalEngDepartment.EEcourses){
                     System.out.println(c);
                 }
 
@@ -100,7 +99,7 @@ public class Student extends User {
                 System.out.println("***************************************************************************************************************************************************************************************************");
             } else if (choice == 6) {
                 System.out.println("***************************************************************************************************************************************************************************************************");
-                for (Course c:ReligiousCenter.ReligiousCourses){
+                for (Course c: ReligiousCenter.ReligiousCourses){
                     System.out.println(c);
                 }
 

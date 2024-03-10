@@ -1,4 +1,6 @@
-package model;
+package University.Course;
+
+import University.User.Student;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
