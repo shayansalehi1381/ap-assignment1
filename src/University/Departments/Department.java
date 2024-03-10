@@ -1,5 +1,7 @@
 package model;
 
+import University.University;
+
 import java.util.ArrayList;
 
 public abstract class Department {
