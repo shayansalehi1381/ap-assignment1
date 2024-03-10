@@ -14,7 +14,8 @@ public class MathDepartment extends Department{
         super();
         mathCourses.add(new SpecializedCourse("calcalus1",11,"Jamali",100,4,false, DayOfWeek.SUNDAY,LocalTime.of(10,0),LocalTime.of(13,0), LocalDate.of(2024,6,20)));
         mathCourses.add(new SpecializedCourse("calcalus2",12,"Habibi",80,4,false, DayOfWeek.MONDAY,LocalTime.of(14,0),LocalTime.of(16,0), LocalDate.of(2024,6,20)));
-        mathCourses.add(new SpecializedCourse("probability",13,"Mirsadeqi",0,4,false, DayOfWeek.SUNDAY,LocalTime.of(10,0),LocalTime.of(12,0), LocalDate.of(2024,6,17)));
+        mathCourses.add(new SpecializedCourse("probability",13,"Mirsadeqi",1,4,false, DayOfWeek.SUNDAY,LocalTime.of(10,0),LocalTime.of(12,0), LocalDate.of(2024,6,17)));
+        mathCourses.add(new GeneralCourse("Farsi",10,"Jalili",25,3,true, DayOfWeek.SATURDAY,LocalTime.of(13,0),LocalTime.of(15,0), LocalDate.of(2024,6,11)));
         for (Course c:mathCourses){
             Department.allCourses.add(c);
         }

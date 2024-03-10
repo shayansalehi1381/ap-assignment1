@@ -625,15 +625,15 @@ public class Admin extends User{
             if (Math == true){
                 System.out.println("Welcome to "+MathDepartment.name);
             } else if (CE == true) {
-                System.out.println("Welcome to "+ComputerEngDepartment.name);
+                System.out.println("Welcome to Computer Eng Department");
             }else if (CHE == true) {
-                System.out.println("Welcome to "+ChemicalEngDepartment.name);
+                System.out.println("Welcome to Chemical Eng Department");
             }else if (EE == true) {
-                System.out.println("Welcome to "+ElectricalEngDepartment.name);
+                System.out.println("Welcome to Electrical Eng Department");
             }else if (LC == true) {
-                System.out.println("Welcome to "+LanguageCenter.name);
+
             }else if (RC == true) {
-                System.out.println("Welcome to "+ReligiousCenter.name);
+
             }
             System.out.println("1.Add a New Course to this Department Or Remove a Course From this Department");
             System.out.println("2.show list of Enrolled Students in this Department");
